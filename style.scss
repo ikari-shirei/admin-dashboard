@@ -1,7 +1,7 @@
 $color1: white;
 $color2: rgb(56, 52, 52);
-$color3: rgb(228, 228, 228);
-$color4: rgb(65, 136, 202);
+$color3: #e2e8f0;
+$color4: #0284c7;
 
 :root {
   font-size: 16px;
@@ -12,18 +12,65 @@ body {
   height: 100vh;
   width: 100vw;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 
   grid-template-areas:
     'sidebar header header header header' 'sidebar main main main main'
-    'sidebar main main main main' 'sidebar main main main main' 'sidebar main main main main';
+    'sidebar main main main main' 'sidebar main main main main' 'sidebar main main main main' 'sidebar main main main main';
 
   font-family: 'Roboto', sans-serif !important;
 }
 
-.sidebar {
+aside {
   grid-area: sidebar;
-  background-color: rebeccapurple;
+  background-color: $color4;
+  color: $color1;
+
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  padding-top: 16px !important;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+
+    span {
+      font-size: 2rem !important;
+    }
+
+    h1 {
+      margin-left: 8px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+
+  ul {
+    li {
+      display: flex;
+      align-items: center;
+      margin-top: 16px;
+
+      span {
+        cursor: pointer;
+        font-size: 1.2rem !important;
+      }
+
+      p {
+        margin-left: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+
+  ul:nth-child(3) {
+    margin-top: 44px;
+  }
 }
 
 header {
@@ -95,7 +142,10 @@ header {
     display: grid;
     grid-template-columns: 2fr 1fr;
 
-    margin: 16px 32px;
+    margin-left: 32px;
+    margin-right: 32px;
+
+    margin-bottom: 16px;
 
     .welcome-container {
       display: flex;
@@ -154,5 +204,66 @@ header {
 
 main {
   grid-area: main;
-  background-color: saddlebrown;
+  background-color: $color3;
+
+  display: grid;
+  grid-template-columns: 2fr minmax(300px, 1fr);
+  grid-row: repeat(6, 1fr);
+  grid-template-areas:
+    'projects ann'
+    'projects ann'
+    'projects ann'
+    'projects trend'
+    'projects trend'
+    'projects trend';
+
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1) inset;
+
+  h2 {
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  color: $color2;
+
+  .projects-container {
+    grid-area: projects;
+    margin: 32px 16px;
+  }
+  .ann-container {
+    grid-area: ann;
+    margin: 32px 16px;
+    margin-bottom: 0;
+
+    .ann-container-inside {
+      background-color: $color1;
+      border-radius: 16px;
+
+      padding: 32px;
+
+      h3 {
+        font-size: 0.8rem;
+        font-weight: bold !important;
+        cursor: pointer;
+      }
+
+      p {
+        font-size: 0.7rem;
+        opacity: 0.7;
+        margin-top: 4px;
+      }
+
+      hr {
+        opacity: 0.5;
+        font-weight: 300;
+        margin: 16px auto;
+      }
+    }
+  }
+  .trends-container {
+    grid-area: trend;
+    margin: 32px 16px;
+  }
 }
