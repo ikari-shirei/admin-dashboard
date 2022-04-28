@@ -1,0 +1,158 @@
+$color1: white;
+$color2: rgb(56, 52, 52);
+$color3: rgb(228, 228, 228);
+$color4: rgb(65, 136, 202);
+
+:root {
+  font-size: 16px;
+}
+
+body {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+
+  grid-template-areas:
+    'sidebar header header header header' 'sidebar main main main main'
+    'sidebar main main main main' 'sidebar main main main main' 'sidebar main main main main';
+
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: rebeccapurple;
+}
+
+header {
+  grid-area: header;
+  background-color: $color1;
+
+  display: flex;
+  color: $color2;
+
+  .header-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    margin: 16px 32px;
+
+    .search-container {
+      display: flex;
+      align-self: center;
+      width: 100%;
+
+      span {
+        cursor: pointer;
+      }
+
+      input {
+        margin-left: 16px;
+        padding-left: 16px;
+        width: 100%;
+
+        border-radius: 16px;
+        border: 0;
+
+        background-color: $color3;
+      }
+    }
+
+    .profile-container {
+      grid-column: 2;
+      justify-self: flex-end;
+
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 16px;
+        cursor: pointer;
+      }
+
+      img {
+        width: 35px;
+        height: 35px;
+        border-radius: 100%;
+
+        margin-left: 16px;
+        cursor: pointer;
+      }
+
+      p {
+        white-space: nowrap;
+        font-weight: bold;
+        font-size: 1rem;
+
+        margin-left: 16px;
+        cursor: pointer;
+      }
+    }
+  }
+  .header-bottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    margin: 16px 32px;
+
+    .welcome-container {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+      }
+
+      .welcome-message {
+        margin-left: 16px;
+        font-weight: bold;
+
+        p {
+          font-size: 0.7rem;
+        }
+
+        h1 {
+          font-size: 1.2rem;
+          margin: 0;
+          margin-top: 4px;
+        }
+      }
+    }
+
+    .buttons-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      align-items: center;
+      justify-content: flex-end;
+
+      button {
+        justify-self: flex-end;
+
+        width: 90px;
+        padding: 8px 16px;
+        margin-left: 8px;
+
+        border: none;
+        border-radius: 16px;
+
+        font-size: 0.7rem;
+        font-weight: bold;
+
+        color: $color1;
+        background-color: $color4;
+
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+main {
+  grid-area: main;
+  background-color: saddlebrown;
+}
